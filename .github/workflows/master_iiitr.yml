@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'iiitr'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_90747b3d3b5141b886b857c8f9f5085f }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1776d065dadf470baff436bbd62d6b32 }}
         package: .
