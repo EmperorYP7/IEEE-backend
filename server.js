@@ -1,6 +1,4 @@
 'use strict';
-require('dotenv').config();
-process.env.NODE_ENV = 'production';
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -14,10 +12,8 @@ const debug = require('debug');
 var server; 
 const app = express();
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
-const db = mongoose.connection;
-db.on('error', (error) => console.log(error));
-db.once('open', () => console.log('Connected to MongoDB!'));
+mongoose.connect(process.env.DATABASE_URL,
+    { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 app.use(express.json());
 app.use(cors());
@@ -90,7 +86,7 @@ app.use(function (err, req, res, next) {
     });
 });
 
-//-----------------Serving Server------------------------
+//------------------------Serving Server------------------------
 
 app.set('port', process.env.PORT || 3000);
 
